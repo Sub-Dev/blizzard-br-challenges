@@ -15,7 +15,34 @@ import BuyIcon from '../assets/buy-icon.svg';
 import CircleIcon from '../assets/circles-icon.svg';
 import ListIcon from '../assets/listitems-icon.svg';
 
+const detectOS = () => {
+  const userAgent = window.navigator.userAgent;
+  if (userAgent.indexOf('Win') !== -1) return 'Windows';
+  if (userAgent.indexOf('Mac') !== -1) return 'MacOS';
+  if (userAgent.indexOf('Linux') !== -1) return 'Linux';
+  return 'Unknown';
+};
+const os = detectOS();
 const Footer = () => {
+  const [osIcon, setOsIcon] = React.useState(<MicrosoftIcon />);
+
+  React.useEffect(() => {
+
+    switch (os) {
+      case 'Windows':
+        setOsIcon(<MicrosoftIcon />);
+        break;
+      case 'MacOS':
+        setOsIcon(<AppleIcon />);
+        break;
+      case 'Linux':
+        setOsIcon(<img src={LinuxIcon} alt="Linux Icon" style={{ width: '24px', height: '24px' }} />);
+        break;
+      default:
+        setOsIcon(<MicrosoftIcon />); // Default icon
+        break;
+    }
+  }, []);
   return (
     <Box
       sx={{
@@ -24,17 +51,16 @@ const Footer = () => {
         position: 'relative',
         backgroundImage: `url(${FooterImage})`,
         backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center',
-        textAlign: 'left', // Alinha o texto à esquerda
+        justifyContent: 'space-between', // Mantém o texto à esquerda e as imagens à direita
         color: 'white',
-        flexDirection: 'column',
-        padding: '20px',
+        padding: '40px',
       }}
     >
-      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', maxWidth: '50%', marginRight: '60%', marginTop: '10%' }}>
+      {/* Texto à esquerda */}
+      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', maxWidth: '50%', marginLeft: '5%' }}>
         <img src={BattleNetLogoImage} alt="Battle.net Logo" style={{ maxWidth: '100%', marginBottom: '20px' }} />
         <Typography variant="h4" sx={{ fontWeight: 'bold', marginBottom: '8%' }}>
           Baixe agora o Battle.net
@@ -56,35 +82,47 @@ const Footer = () => {
           sx={{
             background: '#00aeff',
             textTransform: 'none',
-            mt: 2,
+            mt: 1,
             '&:hover': {
               backgroundColor: '#0080ff',
               boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
             },
             marginBottom: '8%',
-            width: '60%'
+            width: '60%',
+            fontWeight: '600'
+
           }}
-          startIcon={<MicrosoftIcon />}
+          startIcon={osIcon}
         >
-          Baixar para Windows
+          Baixar para {os}
         </Button>
-        <Typography sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column', marginBottom: '10px' }}>
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <img src={PhoneIcon} alt="Phone Icon" style={{ marginRight: '20px', width: '24px', height: '24px', marginBottom: '-20px' }} />
+        <Typography sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginBottom: '5px' }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', marginBottom: '0px' }}>
+            <img src={PhoneIcon} alt="Phone Icon" style={{ marginRight: '15px', marginBottom: '-12%', width: '24px', height: '24px' }} />
             Também disponível como
-          </div>
-          <Typography sx={{ display: 'flex', flexDirection: 'column', marginBottom: '10px', marginLeft: '-20px' }}>
-            <Link color="inherit">aplicativo móvel</Link>
-          </Typography>
+          </Box>
+          <Link sx={{ marginLeft: '18%' }} color="inherit">aplicativo móvel</Link>
         </Typography>
-
-
       </Box>
-      <Box sx={{ position: 'relative', display: 'flex', justifyContent: 'flex-end', alignItems: 'center', maxWidth: '80%', marginTop: '20px' }}>
+
+      {/* Imagens à direita */}
+      <Box sx={{
+        position: 'relative',
+        display: 'flex',
+        justifyContent: 'flex-end',
+        alignItems: 'center',
+        maxWidth: '70%',
+      }}>
         <img src={AppImage} alt="App Image" style={{ maxWidth: '100%', height: 'auto' }} />
-        <img src={AppMiniImage} alt="App Mini Image" style={{ position: 'absolute', top: '45%', right: '20%', maxWidth: '80%' }} />
+        <img src={AppMiniImage} alt="App Mini Image" style={{
+          position: 'absolute',
+          top: '50%',
+          left: '40%',
+          maxWidth: '100%',
+          transform: 'translate(-20%, -10%)',
+        }} />
       </Box>
-    </Box >
+    </Box>
   );
 };
 
