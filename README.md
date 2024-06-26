@@ -22,6 +22,8 @@ O objetivo deste desafio é criar uma landing page que apresente os principais j
 -  [Material-UI](https://mui.com/material-ui/)
 -  [Saas](https://sass-lang.com/)
 -  [Typescript](https://www.typescriptlang.org/)
+-  [Axios](https://axios-http.com/)
+
 
 ## 📝 Requisitos do desafio
 
@@ -29,7 +31,7 @@ O objetivo deste desafio é criar uma landing page que apresente os principais j
 
 - [x] Criar as seções: **Menu**, **Banner hero**, **Footer**.
 
-- [ ]  O texto e o ícone do botão “Baixar jogo” devem ser alterados conforme o sistema operacional do usuário que estiver acessando a página. ( [material de apoio](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/userAgent))
+- [x]  O texto e o ícone do botão “Baixar jogo” devem ser alterados conforme o sistema operacional do usuário que estiver acessando a página. ( [material de apoio](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/userAgent))
 
 - [x]  Aplicar efeito de *hover* nas opções do menu de navegação.
 
@@ -54,6 +56,6 @@ O objetivo deste desafio é criar uma landing page que apresente os principais j
 
 - [ ]  Ao clicar no botão **Logar** do menu de navegação, deverá ser exibido o modal de login.
 
-- [ ]  Criar componente de *dropdown* para as opções **Jogos** e **Esportes** do menu de navegação.
+- [x]  Criar componente de *dropdown* para as opções **Jogos** e **Esportes** do menu de navegação.
 
 - [ ]  Deverá ser executado um *gif* do jogo quando ocorrer o evento de *hover* na capa do trailer
