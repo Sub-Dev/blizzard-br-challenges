@@ -42,11 +42,11 @@ O objetivo deste desafio é criar uma landing page que apresente os principais j
 
 - [ ]  Todos os requisitos do nivel fácil.
 
-- [ ]  Criar as seções: **Menu**, **Banner hero**, **Jogos Exclusivo**, **Footer**.
+- [x]  Criar as seções: **Menu**, **Banner hero**, **Jogos Exclusivo**, **Footer**.
 
-- [ ]  Buscar a lista de jogos via api. ([acessar endpoint](https://api-brchallenges.vercel.app/api/blizzard/games))
+- [x]  Buscar a lista de jogos via api. ([acessar endpoint](https://api-brchallenges.vercel.app/api/blizzard/games))
 
-- [ ]  Aplicar efeito de hover nas imagens dos jogos da seção **Jogos Exclusivos**.
+- [x]  Aplicar efeito de hover nas imagens dos jogos da seção **Jogos Exclusivos**.
 
 - [ ]  Alterar as informações da seção **Banner Hero** ao selecionar uma opção no menu lateral. Os jogos disponíveis são **Diablo**, **HearthStone** e **World of Warcraft**.
 
