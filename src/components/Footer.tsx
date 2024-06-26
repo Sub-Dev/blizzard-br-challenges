@@ -8,12 +8,12 @@ import AppMiniImage from '../assets/ilustrations/app-mini.png';
 import BattleNetLogoImage from '../assets/logo-battle-net.png';
 import MicrosoftIcon from '@mui/icons-material/Microsoft';
 import AppleIcon from '@mui/icons-material/Apple';
-import LinuxIcon from '../assets/icons8-linux-50.png';
+import LinuxIcon from '../assets/icons/icons8-linux-50.png';
 import { Link } from '@mui/material';
-import PhoneIcon from '../assets/phone-icon.svg';
-import BuyIcon from '../assets/buy-icon.svg';
-import CircleIcon from '../assets/circles-icon.svg';
-import ListIcon from '../assets/listitems-icon.svg';
+import PhoneIcon from '../assets/icons/phone-icon.svg';
+import BuyIcon from '../assets/icons/buy-icon.svg';
+import CircleIcon from '../assets/icons/circles-icon.svg';
+import ListIcon from '../assets/icons/listitems-icon.svg';
 
 const detectOS = () => {
   const userAgent = window.navigator.userAgent;
