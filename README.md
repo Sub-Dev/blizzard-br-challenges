@@ -14,16 +14,17 @@ Para facilitar a codificação do projeto foi usado um protótipo do figma como 
 
 ## Descrição
 
-O objetivo deste desafio é criar uma landing page que apresente os principais jogos da empresa Blizzard, conforme detalhado na página do desafio no site BRChallenges. Utilizaremos as tecnologias listadas abaixo para garantir que todas as funcionalidades e requisitos propostos pelo desafio sejam contemplados.
+O objetivo deste desafio é criar uma landing page que apresente os principais jogos da empresa Blizzard, conforme detalhado na página do desafio no site BRChallenges. Utilizarei as tecnologias listadas abaixo para garantir que todas as funcionalidades e requisitos propostos pelo desafio sejam contemplados.
 
-## 🚀 Tecnologias
-
--  [React.js](https://pt-br.reactjs.org/)
--  [Material-UI](https://mui.com/material-ui/)
--  [Saas](https://sass-lang.com/)
--  [Typescript](https://www.typescriptlang.org/)
--  [Axios](https://axios-http.com/)
-
+## 🎨 Tecnologias utilizadas
+- <img align="center" alt="HTML" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original. svg"> HTML5: Para a estrutura e layout da interface do jogo.
+- <img align="center" alt="CSS" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original. svg"> CSS3: Para estilizar e tornar o jogo visualmente atraente com animações e transições.
+- <img align="center" alt="Js" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain. svg"> JavaScript: Para adicionar funcionalidade e lógica ao jogo.
+- <img align="center" alt="ReactJS" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react- original-wordmark.svg"> [React.js](https://pt-br.reactjs.org/): Para criar uma experiência de usuário responsiva e interativa.
+-  <img align="center" alt="Material-UI" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/materialui/materialui-original.svg" />[Material-UI](https://mui.com/material-ui/): Biblioteca de componentes React utilizada para implementar o design com base no Material Design da Google, proporcionando uma UI consistente e moderna.
+-  <img align="center" alt="Saas" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sass/sass-original.svg" />[Saas](https://sass-lang.com/): Utilizado para escrever estilos CSS de forma mais eficiente e organizada, aproveitando recursos como variáveis e aninhamento.
+-  [Typescript](https://www.typescriptlang.org/): Adicionado para adicionar tipagem estática opcional ao JavaScript, aumentando a robustez e a escalabilidade do código.
+-  <img  align="center" alt="Axios" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/axios/axios-plain.svg" />[Axios](https://axios-http.com/):  Cliente HTTP baseado em Promise utilizado para fazer requisições HTTP de forma simplificada e eficiente para a conexão com a API.
 
 ## 📝 Requisitos do desafio
 
@@ -59,3 +60,29 @@ O objetivo deste desafio é criar uma landing page que apresente os principais j
 - [x]  Criar componente de *dropdown* para as opções **Jogos** e **Esportes** do menu de navegação.
 
 - [ ]  Deverá ser executado um *gif* do jogo quando ocorrer o evento de *hover* na capa do trailer
+
+
+## 👥 Autores
+
+<table>
+ <tr>
+ <td alinhar="centro">
+ <a href="https://github.com/Sub-Dev" target="_blank">
+ <img src="https://avatars.githubusercontent.com/u/68450692?v=4" alt="Anthony-Marin" height="30" width="30"/>
+ </a>
+ </td>
+ <td>
+ <strong>Anthony Marin</strong> (Subdesenvolvedor) - <a href="https://github.com/Sub-Dev">Perfil no GitHub</a>
+ </td>
+ </tr>
+</table>
+
+## 💬 Obrigado
+Obrigado ao [**BRChallenges**](https://www.brchallenges.com/) pelo desafio envolvente que inspirou este projeto.
+E [**Gilberto Prado**](https://www.linkedin.com/in/gilberto-insanydesign/) pelo projeto do Figma usado como base para o projeto.
+Agradecimentos especiais à comunidade de código aberto pelos recursos e ferramentas inestimáveis ​​que tornaram este projeto possível.
+
+## 🌐 Links
+- Live Demo: [Veja o Projeto aqui](https://sub-dev.github.io/blizzard-br-challenges/)
+- Link do desafio: [Desafio BRChallenges](https://www.brchallenges.com/desafio/blizzard)
+- Repositório: [Repositório no GitHub](https://github.com/Sub-Dev/blizzard-br-challenges)

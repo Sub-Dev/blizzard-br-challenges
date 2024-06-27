@@ -38,23 +38,28 @@ const GamesList = () => {
 
   return (
     <Box sx={{ padding: '20px' }}>
-      <Typography variant="h4" gutterBottom>Jogos Exclusivos</Typography>
-      <Box
-        sx={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
-          gap: '20px',
-          marginLeft: '10%',
-          marginRight: '10%',
-          alignItems: 'center',
-        }}
-      >
-        <img src={BattleNetIcon} alt="BattleNet Icon" style={{ marginRight: '10px' }} />
-        <img src={NintendoSwitchIcon} alt="Nintendo Switch Icon" style={{ marginRight: '10px' }} />
-        <img src={XboxIcon} alt="Xbox Icon" style={{ marginRight: '10px' }} />
-        <img src={PlaystationIcon} alt="Playstation Icon" style={{ marginRight: '10px' }} />
-        <Button variant="text" startIcon={<GridViewRoundedIcon />}>Ver todos jogos</Button>
-      </Box>
+      <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{
+        marginBottom: '5%', marginTop: '5%', marginLeft: '10%', marginRight: '10%', position: 'relative'
+      }}>
+        <Typography variant="caption" sx={{ fontWeight: 'bold', color: '#8f9099', marginBottom: '5%' }}>GAMES</Typography>
+        <Box sx={{ marginLeft: '10%' }}>
+          <Typography variant="h4" sx={{ fontWeight: 'bold', marginLeft: '10%' }}>Jogos exclusivos</Typography>
+        </Box>
+        <Box display="flex" alignItems="center" justifyContent="center" sx={{ flex: 1 }}>
+          <Box display="flex" alignItems="center" gap={2} sx={{ marginRight: '50%' }}>
+            <img src={BattleNetIcon} alt="BattleNet Icon" style={{ width: '24px', height: '24px' }} />
+            <img src={NintendoSwitchIcon} alt="Nintendo Switch Icon" style={{ width: '24px', height: '24px' }} />
+            <img src={XboxIcon} alt="Xbox Icon" style={{ width: '24px', height: '24px' }} />
+            <img src={PlaystationIcon} alt="Playstation Icon" style={{ width: '24px', height: '24px' }} />
+          </Box>
+        </Box>
+        <Button variant='text' startIcon={<GridViewRoundedIcon sx={{ width: '10px', height: '10px' }} />} sx={{ textTransform: 'none' }} >
+          <Typography variant="caption" sx={{ color: '#00BFFF', fontWeight: 'bold' }}>
+            Ver todos jogos
+          </Typography>
+        </Button>
+      </Stack>
+
       <Box
         sx={{
           display: 'grid',
@@ -105,7 +110,7 @@ const GamesList = () => {
               <Typography variant="h6" component="h2" gutterBottom>
                 {game.name}
               </Typography>
-              <Typography variant="body2">
+              <Typography variant="body2" sx={{ color: '#8f9099' }}>
                 {game.category}
               </Typography>
             </CardContent>
