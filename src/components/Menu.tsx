@@ -166,7 +166,7 @@ function ResponsiveAppBar() {
                           </MenuItem>
                         ))}
                       </Menu>
-                     
+
                     </React.Fragment>
                   );
                 } else if (page === 'Esportes') {
@@ -210,7 +210,7 @@ function ResponsiveAppBar() {
                             borderRadius: 0,
                           },
                         }}
-                        
+
                       >
                         {esportesItems.map((item) => (
                           <MenuItem key={item} onClick={handleCloseEsportesMenu} sx={{ color: '#777878' }}>
@@ -219,7 +219,7 @@ function ResponsiveAppBar() {
                           </MenuItem>
                         ))}
                       </Menu>
-                 
+
                     </React.Fragment>
                   );
                 } else {
@@ -292,7 +292,7 @@ function ResponsiveAppBar() {
         </Container>
       </AppBar>
       <Box sx={{ position: 'relative', width: '100%', height: '2px' }}>
-        <Divider sx={{ borderBottomWidth: 2, borderColor: '#232323', my: 1,zIndex: 1200}} />
+        <Divider sx={{ borderBottomWidth: 2, borderColor: '#232323', my: 1, zIndex: 1200 }} />
         <Box
           sx={{
             position: 'absolute',
