@@ -41,7 +41,7 @@ const GamesList = () => {
       <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{
         marginBottom: '5%', marginTop: '5%', marginLeft: '10%', marginRight: '10%', position: 'relative'
       }}>
-        <Typography variant="caption" sx={{ fontWeight: 'bold', color: '#8f9099', marginBottom: '5%' }}>GAMES</Typography>
+        <Typography variant="caption" sx={{ fontWeight: 'bold', color: '#8f9099', marginBottom: '3%' }}>GAMES</Typography>
         <Box sx={{ marginLeft: '10%' }}>
           <Typography variant="h4" sx={{ fontWeight: 'bold', marginLeft: '10%' }}>Jogos exclusivos</Typography>
         </Box>

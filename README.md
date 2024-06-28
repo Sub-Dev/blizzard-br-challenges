@@ -49,7 +49,7 @@ O objetivo deste desafio é criar uma landing page que apresente os principais j
 
 - [x]  Aplicar efeito de hover nas imagens dos jogos da seção **Jogos Exclusivos**.
 
-- [ ]  Alterar as informações da seção **Banner Hero** ao selecionar uma opção no menu lateral. Os jogos disponíveis são **Diablo**, **HearthStone** e **World of Warcraft**.
+- [x]  Alterar as informações da seção **Banner Hero** ao selecionar uma opção no menu lateral. Os jogos disponíveis são **Diablo**, **HearthStone** e **World of Warcraft**.
 
 ### Nível Difícil
 
@@ -59,7 +59,7 @@ O objetivo deste desafio é criar uma landing page que apresente os principais j
 
 - [x]  Criar componente de *dropdown* para as opções **Jogos** e **Esportes** do menu de navegação.
 
-- [ ]  Deverá ser executado um *gif* do jogo quando ocorrer o evento de *hover* na capa do trailer
+- [x]  Deverá ser executado um *gif* do jogo quando ocorrer o evento de *hover* na capa do trailer
 
 
 ## 👥 Autores
