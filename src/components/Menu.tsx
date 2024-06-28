@@ -10,22 +10,62 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import logo from '../assets/logo-blizzard.png';
-import game1 from '../assets/banner-hero/icons/game-1.png';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
-import '@fontsource/roboto/400.css';
 import Divider from '@mui/material/Divider';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import Grid from '@mui/material/Grid';
+import Stack from '@mui/material/Stack';
+
+import GrayBlocksIcon from '../assets/icons/gray-blocks-icon.svg';
+
+import Diablo4Image from '../assets/banner-hero/icons/diablo_iv.png';
+import HearthStoneImage from '../assets/banner-hero/icons/hearthstone.png';
+import WowImage from '../assets/banner-hero/icons/wow.png';
+import DiabloImage from '../assets/banner-hero/icons/diablo_immortal.png';
+import StarcraftImage from '../assets/banner-hero/icons/starcraft_2.png';
+import OverwatchImage from '../assets/banner-hero/icons/overwatch_2.png';
+import Diablo2Image from '../assets/banner-hero/icons/diablo_ressurected.png';
+import Diablo3Image from '../assets/banner-hero/icons/diablo_3.png';
+import ArcadeImage from '../assets/banner-hero/icons/arcade.png';
+import WarcraftImage from '../assets/banner-hero/icons/warcraft.png';
+import HeroesOfStormImage from '../assets/banner-hero/icons/heroes_of_the_storm.png';
+import StarcraftRemasterImage from '../assets/banner-hero/icons/starcraft.png';
+
+import HeartStoneCamp from '../assets/banner-hero/logos-esportes/hearthstone_masters.png';
+import WowCamp from '../assets/banner-hero/logos-esportes/wow_championship.png';
+import OverwatchMundiCamp from '../assets/banner-hero/logos-esportes/overwatch_world.png';
+import OverwatchLigaCamp from '../assets/banner-hero/logos-esportes/overwatch_league.png';
+import StarcraftCamp from '../assets/banner-hero/logos-esportes/star_craft.png';
 
 const pages = ['Jogos', 'Esportes', 'Loja', 'Notícias', 'Suporte'];
-const jogosItems = ['Overwatch', 'Diablo', 'StarCraft'];
-const esportesItems = ['Overwatch League', 'World of Warcraft Arena'];
+const jogosItems = [
+  { name: 'Diablo® II ressurected', image: Diablo2Image },
+  { name: 'Overwatch® 2', image: OverwatchImage },
+  { name: 'World of Warcraft®', image: WowImage },
+  { name: 'Hearthstone®', image: HearthStoneImage },
+  { name: 'Heroes of the storm®', image: HeroesOfStormImage },
+  { name: 'Warcraft® III Reforged', image: WarcraftImage },
+  { name: 'Diablo® IV', image: Diablo4Image },
+  { name: 'Diablo® Immortal', image: DiabloImage },
+  { name: 'Diablo® III', image: Diablo3Image },
+  { name: 'StarCraft® II', image: StarcraftImage },
+  { name: 'StarCraft® Remastered', image: StarcraftRemasterImage },
+  { name: 'Arcade da Blizzard®', image: ArcadeImage },
+];
+
+const esportesItems = [
+  { name: 'Hearthstone® masters', image: HeartStoneCamp },
+  { name: 'Campeonato Mundial de Arena WoW®', image: WowCamp },
+  { name: 'StarCraft® II WCS', image: StarcraftCamp },
+  { name: 'Copa Mundial de Overwatch®', image: OverwatchMundiCamp },
+  { name: 'Liga de Overwatch®', image: OverwatchLigaCamp },
+];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElJogos, setAnchorElJogos] = React.useState<null | HTMLElement>(null);
   const [anchorElEsportes, setAnchorElEsportes] = React.useState<null | HTMLElement>(null);
-
   const [isJogosMenuOpen, setIsJogosMenuOpen] = React.useState(false);
   const [isEsportesMenuOpen, setIsEsportesMenuOpen] = React.useState(false);
 
@@ -58,15 +98,8 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <header>
-      <AppBar
-        position="static"
-        sx={{
-          bgcolor: 'transparent',
-          boxShadow: 'none',
-          padding: '10px 5%',
-        }}
-      >
+    <Box>
+      <AppBar position="static" sx={{ bgcolor: 'transparent', boxShadow: 'none', padding: '10px 5%' }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <Box sx={{ flexGrow: 1 }}>
@@ -141,7 +174,7 @@ function ResponsiveAppBar() {
                       <Menu
                         id="jogos-menu"
                         anchorEl={anchorElJogos}
-                        open={Boolean(anchorElJogos)}
+                        open={isJogosMenuOpen}
                         onClose={handleCloseJogosMenu}
                         MenuListProps={{
                           'aria-labelledby': 'jogos-button',
@@ -156,17 +189,39 @@ function ResponsiveAppBar() {
                             maxWidth: '100%',
                             bgcolor: '#0c0f13',
                             borderRadius: 0,
+                            color: 'white',
                           },
                         }}
                       >
-                        {jogosItems.map((item) => (
-                          <MenuItem key={item} onClick={handleCloseJogosMenu} sx={{ color: '#777878' }}>
-                            <img src={game1} alt={item} style={{ marginRight: '10px' }} />
-                            {item}
-                          </MenuItem>
-                        ))}
+                        <Grid container spacing={2} sx={{ padding: '5%' }}>
+                          {jogosItems.map((item, index) => (
+                            <Grid item key={index} xs={6} md={4} lg={2}>
+                              <MenuItem onClick={handleCloseJogosMenu} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                                <img src={item.image} alt={item.name} style={{ marginBottom: '5px' }} />
+                                {item.name}
+                              </MenuItem>
+                            </Grid>
+                          ))}
+                        </Grid>
+                        <Stack direction="column" alignItems="flex-start" spacing={1} sx={{ padding: '10px', borderTop: '1px solid #3d4149' }}>
+                          <Stack direction="row" alignItems="center" spacing={1}>
+                            <img src={GrayBlocksIcon} alt="GreyBlocks Icon" style={{ marginRight: '5px' }} />
+                            <Typography sx={{ color: '#777878' }}>Ver todos os jogos</Typography>
+                          </Stack>
+                          <Stack direction="row" alignItems="center" spacing={1}>
+                            <img src={GrayBlocksIcon} alt="GreyBlocks Icon" style={{ marginRight: '5px' }} />
+                            <Typography sx={{ color: '#777878' }}>Aplicativo Battle.net</Typography>
+                          </Stack>
+                          <Stack direction="row" alignItems="center" spacing={1}>
+                            <img src={GrayBlocksIcon} alt="GreyBlocks Icon" style={{ marginRight: '5px' }} />
+                            <Typography sx={{ color: '#777878' }}>Downloads</Typography>
+                          </Stack>
+                          <Stack direction="row" alignItems="center" spacing={1}>
+                            <img src={GrayBlocksIcon} alt="GreyBlocks Icon" style={{ marginRight: '5px' }} />
+                            <Typography sx={{ color: '#777878' }}>Fóruns dos jogos</Typography>
+                          </Stack>
+                        </Stack>
                       </Menu>
-                     
                     </React.Fragment>
                   );
                 } else if (page === 'Esportes') {
@@ -193,7 +248,7 @@ function ResponsiveAppBar() {
                       <Menu
                         id="esportes-menu"
                         anchorEl={anchorElEsportes}
-                        open={Boolean(anchorElEsportes)}
+                        open={isEsportesMenuOpen}
                         onClose={handleCloseEsportesMenu}
                         MenuListProps={{
                           'aria-labelledby': 'esportes-button',
@@ -210,16 +265,14 @@ function ResponsiveAppBar() {
                             borderRadius: 0,
                           },
                         }}
-                        
                       >
                         {esportesItems.map((item) => (
-                          <MenuItem key={item} onClick={handleCloseEsportesMenu} sx={{ color: '#777878' }}>
-                            <img src={game1} alt={item} style={{ marginRight: '10px' }} />
-                            {item}
+                          <MenuItem key={item.name} onClick={handleCloseEsportesMenu} sx={{ color: '#777878' }}>
+                            <img src={item.image} alt={item.name} style={{ marginRight: '10px' }} />
+                            {item.name}
                           </MenuItem>
                         ))}
                       </Menu>
-                 
                     </React.Fragment>
                   );
                 } else {
@@ -292,7 +345,7 @@ function ResponsiveAppBar() {
         </Container>
       </AppBar>
       <Box sx={{ position: 'relative', width: '100%', height: '2px' }}>
-        <Divider sx={{ borderBottomWidth: 2, borderColor: '#232323', my: 1,zIndex: 1200}} />
+        <Divider sx={{ borderBottomWidth: 2, borderColor: '#232323', my: 1, zIndex: 1200 }} />
         <Box
           sx={{
             position: 'absolute',
@@ -305,7 +358,9 @@ function ResponsiveAppBar() {
           }}
         />
       </Box>
-    </header>
+
+
+    </Box>
   );
 }
 
