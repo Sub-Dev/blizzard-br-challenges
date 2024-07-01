@@ -17,7 +17,12 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 
-import GrayBlocksIcon from '../assets/icons/gray-blocks-icon.svg';
+import CubesIcon from '../assets/icons/cubes.svg';
+import BattleNetIcon from '../assets/icons/icon-logo.svg';
+import DownloadIcon from '../assets/icons/icon-downloads.svg';
+import ForunsIcon from '../assets/icons/icon-chat.svg';
+
+import TrophyIcon from '@mui/icons-material/EmojiEvents';
 
 import Diablo4Image from '../assets/banner-hero/icons/diablo_iv.png';
 import HearthStoneImage from '../assets/banner-hero/icons/hearthstone.png';
@@ -37,6 +42,9 @@ import WowCamp from '../assets/banner-hero/logos-esportes/wow_championship.png';
 import OverwatchMundiCamp from '../assets/banner-hero/logos-esportes/overwatch_world.png';
 import OverwatchLigaCamp from '../assets/banner-hero/logos-esportes/overwatch_league.png';
 import StarcraftCamp from '../assets/banner-hero/logos-esportes/star_craft.png';
+
+import LoginModal from './LoginModal.tsx'; // Importando o componente de modal de login
+
 
 const pages = ['Jogos', 'Esportes', 'Loja', 'Notícias', 'Suporte'];
 const jogosItems = [
@@ -68,6 +76,7 @@ function ResponsiveAppBar() {
   const [anchorElEsportes, setAnchorElEsportes] = React.useState<null | HTMLElement>(null);
   const [isJogosMenuOpen, setIsJogosMenuOpen] = React.useState(false);
   const [isEsportesMenuOpen, setIsEsportesMenuOpen] = React.useState(false);
+  const [openLoginModal, setOpenLoginModal] = React.useState(false);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -97,10 +106,18 @@ function ResponsiveAppBar() {
     setIsEsportesMenuOpen(false);
   };
 
+  const handleOpenLoginModal = () => {
+    setOpenLoginModal(true);
+  };
+
+  const handleCloseLoginModal = () => {
+    setOpenLoginModal(false);
+  };
+
   return (
-    <Box>
-      <AppBar position="static" sx={{ bgcolor: 'transparent', boxShadow: 'none', padding: '10px 5%' }}>
-        <Container maxWidth="xl">
+    <Box >
+      <AppBar position="absolute" sx={{ bgcolor: 'transparent', boxShadow: 'none', padding: '10px 5%', zIndex: 1200 }}>
+        <Container maxWidth="xl" >
           <Toolbar disableGutters>
             <Box sx={{ flexGrow: 1 }}>
               <img src={logo} alt="Blizzard Logo" style={{ maxWidth: 160 }} />
@@ -181,6 +198,13 @@ function ResponsiveAppBar() {
                           sx: {
                             width: '100vw', // Ajustando largura para ocupar a tela
                             maxWidth: '100%',
+                            transformOrigin: {
+                              vertical: 'top',
+                              horizontal: 'center',
+                            },
+                            transform: isJogosMenuOpen ? 'translateY(0)' : 'translateY(-100%)',
+                            transition: 'transform 0.5s ease',
+
                           },
                         }}
                         PaperProps={{
@@ -193,34 +217,87 @@ function ResponsiveAppBar() {
                           },
                         }}
                       >
-                        <Grid container spacing={2} sx={{ padding: '5%' }}>
+                        <Grid container spacing={10} sx={{ padding: '6%', backgroundColor: '#040507' }}>
                           {jogosItems.map((item, index) => (
                             <Grid item key={index} xs={6} md={4} lg={2}>
-                              <MenuItem onClick={handleCloseJogosMenu} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                              <MenuItem onClick={handleCloseJogosMenu} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', color: '#8f9099' }}>
                                 <img src={item.image} alt={item.name} style={{ marginBottom: '5px' }} />
                                 {item.name}
                               </MenuItem>
                             </Grid>
                           ))}
                         </Grid>
-                        <Stack direction="column" alignItems="flex-start" spacing={1} sx={{ padding: '10px', borderTop: '1px solid #3d4149' }}>
-                          <Stack direction="row" alignItems="center" spacing={1}>
-                            <img src={GrayBlocksIcon} alt="GreyBlocks Icon" style={{ marginRight: '5px' }} />
-                            <Typography sx={{ color: '#777878' }}>Ver todos os jogos</Typography>
-                          </Stack>
-                          <Stack direction="row" alignItems="center" spacing={1}>
-                            <img src={GrayBlocksIcon} alt="GreyBlocks Icon" style={{ marginRight: '5px' }} />
-                            <Typography sx={{ color: '#777878' }}>Aplicativo Battle.net</Typography>
-                          </Stack>
-                          <Stack direction="row" alignItems="center" spacing={1}>
-                            <img src={GrayBlocksIcon} alt="GreyBlocks Icon" style={{ marginRight: '5px' }} />
-                            <Typography sx={{ color: '#777878' }}>Downloads</Typography>
-                          </Stack>
-                          <Stack direction="row" alignItems="center" spacing={1}>
-                            <img src={GrayBlocksIcon} alt="GreyBlocks Icon" style={{ marginRight: '5px' }} />
-                            <Typography sx={{ color: '#777878' }}>Fóruns dos jogos</Typography>
-                          </Stack>
-                        </Stack>
+                        <Grid
+                          container
+                          spacing={0.5}
+                          sx={{ padding: '1%', backgroundColor: '#101114', justifyContent: "center" }}
+                        >
+                          <Grid item xs={12} sm={6} md={3}>
+                            <Stack
+                              direction="row"
+                              alignItems="center"
+                              spacing={0.5}
+                              sx={{ textAlign: "center", justifyContent: "center" }}
+                            >
+                              <img
+                                src={CubesIcon}
+                                alt="Cubes Icon"
+                                style={{ display: "block", margin: "5%" }}
+                              />
+                              <Typography sx={{ color: 'white' }}>Ver todos os jogos</Typography>
+                            </Stack>
+                          </Grid>
+
+                          <Grid item xs={12} sm={6} md={2}>
+                            <Stack
+                              direction="row"
+                              alignItems="center"
+                              spacing={0.5}
+                              sx={{ textAlign: "center", justifyContent: "center" }}
+                            >
+                              <img
+                                src={BattleNetIcon}
+                                alt="BattleNet Icon"
+                                style={{ display: "block", margin: "5%" }}
+                              />
+                              <Typography sx={{ color: 'white' }}>Aplicativo Battle.net</Typography>
+                            </Stack>
+                          </Grid>
+
+                          <Grid item xs={12} sm={6} md={2}>
+                            <Stack
+                              direction="row"
+                              alignItems="center"
+                              spacing={0.5}
+                              sx={{ textAlign: "center", justifyContent: "center" }}
+                            >
+                              <img
+                                src={DownloadIcon}
+                                alt="Download Icon"
+                                style={{ display: "block", margin: "5%" }}
+                              />
+                              <Typography sx={{ color: 'white' }}>Downloads</Typography>
+                            </Stack>
+                          </Grid>
+
+                          <Grid item xs={12} sm={6} md={2}>
+                            <Stack
+                              direction="row"
+                              alignItems="center"
+                              spacing={0.5}
+                              sx={{ textAlign: "center", justifyContent: "center" }}
+                            >
+                              <img
+                                src={ForunsIcon}
+                                alt="Foruns Icon"
+                                style={{ display: "block", margin: "5%" }}
+                              />
+                              <Typography sx={{ color: 'white' }}>Fóruns dos jogos</Typography>
+                            </Stack>
+                          </Grid>
+                        </Grid>
+
+
                       </Menu>
                     </React.Fragment>
                   );
@@ -255,6 +332,8 @@ function ResponsiveAppBar() {
                           sx: {
                             width: '100vw', // Ajustando largura para ocupar a tela
                             maxWidth: '100%',
+                            transform: isEsportesMenuOpen ? 'translateY(0)' : 'translateY(-100%)', // Animação de deslize
+                            transition: 'transform 0.3s ease', // Transição suave
                           },
                         }}
                         PaperProps={{
@@ -263,15 +342,34 @@ function ResponsiveAppBar() {
                             maxWidth: '100%',
                             bgcolor: '#0c0f13',
                             borderRadius: 0,
+                            color: 'white',
+                            zIndex: 1000, // Z-index menor que a AppBar
                           },
                         }}
                       >
-                        {esportesItems.map((item) => (
-                          <MenuItem key={item.name} onClick={handleCloseEsportesMenu} sx={{ color: '#777878' }}>
-                            <img src={item.image} alt={item.name} style={{ marginRight: '10px' }} />
-                            {item.name}
-                          </MenuItem>
-                        ))}
+                        <Grid container spacing={10} sx={{ padding: '6%', backgroundColor: '#040507' }}>
+                          {esportesItems.map((item, index) => (
+                            <Grid item key={index} xs={6} md={4} lg={2} sx={{ marginLeft: '3.1%' }}>
+                              <MenuItem onClick={handleCloseEsportesMenu} sx={{ marginLeft: '10%', display: 'flex', flexDirection: 'column', alignItems: 'center', color: '#8f9099' }}>
+                                <img src={item.image} alt={item.name} style={{ marginBottom: '20%' }} />
+                                {item.name}
+                              </MenuItem>
+                            </Grid>
+                          ))}
+                        </Grid>
+                        <Grid item xs={12} sm={6} md={2}>
+                          <Stack
+                            direction="row"
+                            alignItems="center"
+                            spacing={1}
+                            sx={{ padding: '1%', textAlign: "center", justifyContent: "center" }}
+                          >
+                            <TrophyIcon sx={{ color: '#61cdff' }} />
+                            <Typography component="span" sx={{ marginLeft: '4px', color: 'white' }}>
+                              Torneios da comunidade
+                            </Typography>
+                          </Stack>
+                        </Grid>
                       </Menu>
                     </React.Fragment>
                   );
@@ -327,6 +425,7 @@ function ResponsiveAppBar() {
               </Button>
               <Button
                 variant="contained"
+                onClick={handleOpenLoginModal}
                 sx={{
                   background: '#00aeff',
                   textTransform: 'none',
@@ -343,24 +442,26 @@ function ResponsiveAppBar() {
             </Box>
           </Toolbar>
         </Container>
+
       </AppBar>
-      <Box sx={{ position: 'relative', width: '100%', height: '2px' }}>
-        <Divider sx={{ borderBottomWidth: 2, borderColor: '#232323', my: 1, zIndex: 1200 }} />
+
+      <Box sx={{ position: 'absolute', width: '100%', height: '2px', marginTop: '6%', bgcolor: 'transparent', zIndex: 2000 }}>
+        <Divider sx={{ borderBottomWidth: 1, borderColor: '#24262a', my: 1, }} />
         <Box
           sx={{
             position: 'absolute',
-            bottom: '0',
+            marginTop: '-0.6%',
             left: '8%',
             transform: 'translateX(-50%)',
             width: '3%',
             height: '2px',
             backgroundColor: '#00aeff',
+            zIndex: 1
           }}
         />
       </Box>
-
-
-    </Box>
+      <LoginModal open={openLoginModal} onClose={handleCloseLoginModal} />
+    </Box >
   );
 }
 
