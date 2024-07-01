@@ -136,7 +136,7 @@ const Banner = () => {
         backgroundImage: `url(${gameBackgrounds[selectedGame] || BannerDiabloImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        zIndex: 1300,
+        zIndex: 1000,
         boxShadow: 'inset 500px 50px 50px -50px rgba(0, 0, 0, 0.3), inset -500px -500px 50px -50px rgba(0, 0, 0, 0.3)',
         transition: 'background-image 0.3s ease-in-out',
 
