@@ -23,7 +23,7 @@ O objetivo deste desafio é criar uma landing page que apresente os principais j
 - <img align="center" alt="ReactJS" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original-wordmark.svg"> [React.js](https://pt-br.reactjs.org/): Para criar uma experiência de usuário responsiva e interativa.
 -  <img align="center" alt="Material-UI" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/materialui/materialui-original.svg" />[Material-UI](https://mui.com/material-ui/): Biblioteca de componentes React utilizada para implementar o design com base no Material Design da Google, proporcionando uma UI consistente e moderna.
 -  <img align="center" alt="Saas" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sass/sass-original.svg" />[Saas](https://sass-lang.com/): Utilizado para escrever estilos CSS de forma mais eficiente e organizada, aproveitando recursos como variáveis e aninhamento.
--  [Typescript](https://www.typescriptlang.org/): Adicionado para adicionar tipagem estática opcional ao JavaScript, aumentando a robustez e a escalabilidade do código.
+-  <img align="center" alt="Saas" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" />[Typescript](https://www.typescriptlang.org/): Adicionado para adicionar tipagem estática opcional ao JavaScript, aumentando a robustez e a escalabilidade do código.
 -  <img  align="center" alt="Axios" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/axios/axios-plain.svg" />[Axios](https://axios-http.com/):  Cliente HTTP baseado em Promise utilizado para fazer requisições HTTP de forma simplificada e eficiente para a conexão com a API.
 
 ## 📝 Requisitos do desafio
@@ -55,7 +55,7 @@ O objetivo deste desafio é criar uma landing page que apresente os principais j
 
 - [ ]  Todos os requisitos do nivel fácil e médio.
 
-- [ ]  Ao clicar no botão **Logar** do menu de navegação, deverá ser exibido o modal de login.
+- [x]  Ao clicar no botão **Logar** do menu de navegação, deverá ser exibido o modal de login.
 
 - [x]  Criar componente de *dropdown* para as opções **Jogos** e **Esportes** do menu de navegação.
 
