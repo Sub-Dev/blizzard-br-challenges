@@ -116,7 +116,12 @@ function ResponsiveAppBar() {
 
   return (
     <Box >
-      <AppBar position="absolute" sx={{ bgcolor: 'transparent', boxShadow: 'none', padding: '10px 5%', zIndex: 1200 }}>
+      <AppBar position="absolute" sx={{
+        bgcolor: isJogosMenuOpen || isEsportesMenuOpen ? 'rgba(4,5,7,255)' : 'transparent',
+        boxShadow: 'none',
+        padding: '10px 5%',
+        zIndex: isJogosMenuOpen || isEsportesMenuOpen ? 1100 : 1200,
+      }}>
         <Container maxWidth="xl" >
           <Toolbar disableGutters>
             <Box sx={{ flexGrow: 1 }}>
@@ -212,6 +217,7 @@ function ResponsiveAppBar() {
                             width: '100%',
                             maxWidth: '100%',
                             bgcolor: '#0c0f13',
+
                             borderRadius: 0,
                             color: 'white',
                           },
@@ -317,6 +323,7 @@ function ResponsiveAppBar() {
                             backgroundColor: 'rgba(0, 174, 255, 0.2)',
                             boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
                             color: '#00aeff',
+
                           },
                         }}
                       >
@@ -344,6 +351,7 @@ function ResponsiveAppBar() {
                             borderRadius: 0,
                             color: 'white',
                             zIndex: 1000, // Z-index menor que a AppBar
+
                           },
                         }}
                       >

@@ -36,7 +36,7 @@ O objetivo deste desafio é criar uma landing page que apresente os principais j
 
 - [x]  Aplicar efeito de *hover* nas opções do menu de navegação.
 
-- [ ]  Aplicar responsividade para as seguintes resoluções: 1920px, 1440px, 768px e 375px.
+- [ ]  Aplicar responsividade para as seguintes resoluções: [x] 1920px, [ ] 1440px, [ ] 768px e [ ] 375px.
 
 ### Nível Médio
 ### 
@@ -53,7 +53,7 @@ O objetivo deste desafio é criar uma landing page que apresente os principais j
 
 ### Nível Difícil
 
-- [ ]  Todos os requisitos do nivel fácil e médio.
+- [x]  Todos os requisitos do nivel fácil e médio.
 
 - [x]  Ao clicar no botão **Logar** do menu de navegação, deverá ser exibido o modal de login.
 
