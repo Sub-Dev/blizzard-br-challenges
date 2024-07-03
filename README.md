@@ -6,6 +6,10 @@
   <img src=".github/demo.png" width="100%" />
 </p>
 
+<p align="center">
+  <img src=".github/demo2.gif" width="100%" />
+</p>
+
 ## 💻 Projeto
 
 Esse projeto é uma landing page da empresa **Blizzard**, ela é composta por um menu de navegação, um banner hero com as informações dos principais jogos da empresa(Diablo, HearthStone e World of Warcraft), a listagem dos jogos exclusivos e um rodapé com informações do download do app battle.net.
@@ -36,12 +40,12 @@ O objetivo deste desafio é criar uma landing page que apresente os principais j
 
 - [x]  Aplicar efeito de *hover* nas opções do menu de navegação.
 
-- [ ]  Aplicar responsividade para as seguintes resoluções: [x] 1920px, [ ] 1440px, [ ] 768px e [ ] 375px.
+- [x]  Aplicar responsividade para as seguintes resoluções: [x] 1920px, [x] 1440px, [x] 768px e [x] 375px.
 
 ### Nível Médio
 ### 
 
-- [ ]  Todos os requisitos do nivel fácil.
+- [x]  Todos os requisitos do nivel fácil.
 
 - [x]  Criar as seções: **Menu**, **Banner hero**, **Jogos Exclusivo**, **Footer**.
 
@@ -78,9 +82,7 @@ O objetivo deste desafio é criar uma landing page que apresente os principais j
 </table>
 
 ## 💬 Obrigado
-Obrigado ao [**BRChallenges**](https://www.brchallenges.com/) pelo desafio envolvente que inspirou este projeto.
-E [**Gilberto Prado**](https://www.linkedin.com/in/gilberto-insanydesign/) pelo projeto do Figma usado como base para o projeto.
-Agradecimentos especiais à comunidade de código aberto pelos recursos e ferramentas inestimáveis ​​que tornaram este projeto possível.
+Obrigado ao [**BRChallenges**](https://www.brchallenges.com/) pelo desafio envolvente que inspirou este projeto e ao [**Gilberto Prado**](https://www.linkedin.com/in/gilberto-insanydesign/) pelo design base Agradecimentos especiais à comunidade de código aberto pelos recursos e ferramentas inestimáveis ​​que tornaram este projeto possível.
 
 ## 🌐 Links
 - Live Demo: [Veja o Projeto aqui](https://sub-dev.github.io/blizzard-br-challenges/)

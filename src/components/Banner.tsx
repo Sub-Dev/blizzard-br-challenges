@@ -30,7 +30,7 @@ import WowImage from '../assets/banner-hero/icons/wow.png';
 import DiabloImage from '../assets/banner-hero/icons/diablo_ressurected.png';
 import StarcraftImage from '../assets/banner-hero/icons/starcraft_2.png';
 
-import { IconButton, Typography, Box, LinearProgress } from '@mui/material';
+import { IconButton, Typography, Box, LinearProgress, useMediaQuery } from '@mui/material';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 
 
@@ -40,7 +40,8 @@ const Banner = () => {
   const [hovered, setHovered] = React.useState(false);
   const [progress, setProgress] = React.useState(0);
 
-
+  const isTablet = useMediaQuery('(max-width: 768px)');
+  const isMobile = useMediaQuery('(max-width: 376px)');
   const games = [
     'Diablo4',
     'HeartStone',
@@ -139,11 +140,21 @@ const Banner = () => {
         zIndex: 1000,
         boxShadow: 'inset 500px 50px 50px -50px rgba(0, 0, 0, 0.3), inset -500px -500px 50px -50px rgba(0, 0, 0, 0.3)',
         transition: 'background-image 0.3s ease-in-out',
+        '@media (max-width: 768px)': {
+          display: 'flex',
+          flexDirection: 'column - reverse',
+          alignItems: 'center'
+        },
+        '@media (max-width: 376px)': {
+          display: 'flex',
+          flexDirection: 'column - reverse',
+          alignItems: 'center'
+        },
 
       }}
     >
       {/* Menu lateral com botões de jogos */}
-      <Box sx={{ marginLeft: '25%' }}>
+      < Box sx={{ marginLeft: '25%' }}>
         <Box
           sx={{
             position: 'absolute',
@@ -156,6 +167,23 @@ const Banner = () => {
             justifyContent: 'center',
             padding: '20px',
             marginLeft: '10%',
+            '@media (max-width: 768px)': {
+              marginTop: '35%',
+              flexDirection: 'row',
+              justifyContent: 'center'
+            },
+            '@media (max-width: 376px)': {
+              marginTop: '60%',
+              flexDirection: 'row',
+              justifyContent: 'start',
+              marginLeft: '1%'
+            },
+            '@media (min-width: 377px) and (max-width: 767px)': {
+              marginTop: '70%',
+              flexDirection: 'row',
+              justifyContent: 'start',
+              marginLeft: '1%'
+            },
           }}
         >
           {['Diablo4', 'HeartStone', 'Wow', 'Diablo', 'Starcraft'].map((game) => (
@@ -188,8 +216,22 @@ const Banner = () => {
         </Box>
 
         {/* Conteúdo principal do banner */}
-        <Box sx={{ flex: 1, textAlign: 'left', marginRight: '60%', marginBottom: '-5%' }}>
-          <Typography variant="h2" sx={{ fontWeight: 'bold' }} gutterBottom>
+        <Box sx={{
+          flex: 1, textAlign: 'left', marginRight: '60%', marginBottom: '-5%',
+          '@media (max-width: 768px)': {
+            marginRight: '10%',
+            marginLeft: '-20%',
+            marginBottom: '20px',
+
+          },
+          '@media (max-width: 376px)': {
+            marginRight: '10%',
+            marginLeft: '-20%',
+            marginBottom: '20px',
+
+          },
+        }}>
+          <Typography variant={isMobile ? "h4" : isTablet ? "h3" : "h2"} sx={{ fontWeight: 'bold' }} gutterBottom>
             {selectedGame === 'Diablo4' && <>Retorna à escuridão com o game Diablo IV</>}
             {selectedGame === 'HeartStone' && <>Novo pacote de expansão de Hearthstone</>}
             {selectedGame === 'Wow' && <>Desbrave as Terras Sombrias em Shadowlands!</>}
@@ -231,56 +273,91 @@ const Banner = () => {
             flexDirection: 'column',
             alignItems: 'flex-end',
             textAlign: 'right',
+            '@media (max-width: 768px)': {
+              marginRight: '-5%',
+              marginBottom: '30%'
+            },
+            '@media (max-width: 375px)': {
+              marginRight: '-5%',
+              marginBottom: '30%'
+            },
+
           }}
         >
           {selectedGame && (
-            <img
+            <Box
+              component="img"
               src={gameLogos[selectedGame] || LogoDiablo4Image}
               alt={`${selectedGame || 'Diablo4'} Logo`}
-              style={{
+              sx={{
                 maxWidth: '100%',
                 height: 'auto',
                 marginRight: '10px',
-                marginBottom: '40%'
+                marginBottom: '40%',
+                '@media (max-width: 768px)': {
+                  marginRight: '60%',
+                  marginBottom: '150%',
+                  width: '350px',
+                  height: '200px',
+                  padding: '10px'
+                },
+                '@media (max-width: 376px)': {
+                  display: 'none'
+                },
+                '@media (min-width: 377px) and (max-width: 767px)': {
+                  display: 'none'
+                },
               }}
             />
-          )}
-          <Typography variant="body1" sx={{ marginBottom: '5%' }} gutterBottom>
-            ASSISTA O TRAILER
-          </Typography>
-          {selectedGame && (
-            <div style={{
-              position: 'relative', width: '280px', height: '158px',
-            }}>
-              <img
-                src={hovered ? gameGif[selectedGame] || Diablo4Gif : gameGifCover[selectedGame] || Diablo4GifCover}
-                alt={`${selectedGame || 'Diablo4'} Gif`}
-                onMouseEnter={() => setHovered(true)}
-                onMouseLeave={() => setHovered(false)}
-                style={{
-                  width: '280px',
-                  height: '158px',
-                  objectFit: 'cover',
-                  transition: 'opacity 0.3s ease-in-out',
-                }}
-              />
-              <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
-                <PlayArrowIcon style={{
-                  fontSize: 64, color: '#00aeff', backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                  borderRadius: '50%',
-                  padding: '10px'
-                }} />
-              </div>
-            </div>
-          )}
 
+          )}
+          <Box sx={{
+            '@media (max-width: 768px)': {
+              position: 'absolute', marginTop: '130%'
+            },
+            '@media (max-width: 376px)': {
+              display: 'none'
+            },
+            '@media (min-width: 377px) and (max-width: 767px)': {
+              display: 'none'
+            },
+          }}>
+            <Typography variant="body1" sx={{ marginBottom: '5%' }} gutterBottom>
+              ASSISTA O TRAILER
+            </Typography>
+            {selectedGame && (
+              <div style={{
+                position: 'relative', width: '280px', height: '158px',
+              }}>
+                <img
+                  src={hovered ? gameGif[selectedGame] || Diablo4Gif : gameGifCover[selectedGame] || Diablo4GifCover}
+                  alt={`${selectedGame || 'Diablo4'} Gif`}
+                  onMouseEnter={() => setHovered(true)}
+                  onMouseLeave={() => setHovered(false)}
+                  style={{
+                    width: '280px',
+                    height: '158px',
+                    objectFit: 'cover',
+                    transition: 'opacity 0.3s ease-in-out',
+                  }}
+                />
+                <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+                  <PlayArrowIcon style={{
+                    fontSize: 64, color: '#00aeff', backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                    borderRadius: '50%',
+                    padding: '10px'
+                  }} />
+                </div>
+              </div>
+            )}
+          </Box>
         </Box>
-      </Box>
+      </Box >
       {/* Barra de Progresso */}
-      <Box sx={{ position: 'absolute', bottom: 0, width: '100%' }}>
+      < Box sx={{ position: 'absolute', bottom: 0, width: '100%' }}>
         <LinearProgress variant="determinate" value={progress} />
-      </Box>
-    </Box>
+      </Box >
+    </Box >
   );
 };
 
