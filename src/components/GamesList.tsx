@@ -39,13 +39,38 @@ const GamesList = () => {
   return (
     <Box sx={{ padding: '20px' }}>
       <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{
-        marginBottom: '5%', marginTop: '5%', marginLeft: '10%', marginRight: '10%', position: 'relative'
+        marginBottom: '5%', marginTop: '5%', marginLeft: '10%', marginRight: '10%', position: 'relative',
+        '@media (max-width: 768px)': {
+          marginLeft: '0%'
+        },
       }}>
-        <Typography variant="caption" sx={{ fontWeight: 'bold', color: '#8f9099', marginBottom: '3%' }}>GAMES</Typography>
+        <Typography variant="caption" sx={{
+          fontWeight: 'bold', color: '#8f9099', marginBottom: '3%', '@media (max-width: 768px)': {
+            display: 'none', // oculta o componente em resoluções menores que 768px
+          },
+        }}>GAMES</Typography>
         <Box sx={{ marginLeft: '10%' }}>
-          <Typography variant="h4" sx={{ fontWeight: 'bold', marginLeft: '10%' }}>Jogos exclusivos</Typography>
+          <Typography variant="h4" sx={{
+            fontWeight: 'bold',
+            marginLeft: '10%',
+            '@media (max-width: 376px)': {
+              fontSize: '20px'
+            },
+            '@media (min-width: 377px) and (max-width: 768px)': {
+              fontSize: '20px'
+            },
+
+          }}>Jogos exclusivos</Typography>
         </Box>
-        <Box display="flex" alignItems="center" justifyContent="center" sx={{ flex: 1 }}>
+        <Box display="flex" alignItems="center" justifyContent="center" sx={{
+          flex: 1,
+          '@media (max-width: 376px)': {
+            display: 'none',
+          },
+          '@media (min-width: 377px) and (max-width: 768px)': {
+            display: 'none',
+          },
+        }}>
           <Box display="flex" alignItems="center" gap={2} sx={{ marginRight: '50%' }}>
             <img src={BattleNetIcon} alt="BattleNet Icon" style={{ width: '24px', height: '24px' }} />
             <img src={NintendoSwitchIcon} alt="Nintendo Switch Icon" style={{ width: '24px', height: '24px' }} />
@@ -67,6 +92,15 @@ const GamesList = () => {
           gap: '20px',
           marginLeft: '10%',
           marginRight: '10%',
+          '@media (max-width: 768px)': {
+            gridTemplateColumns: 'repeat(3, 1fr)', // ajusta para 3 colunas por linha
+          },
+          '@media (max-width: 376px)': {
+            gridTemplateColumns: 'repeat(2, 1fr)', // ajusta para 2 colunas por linha em dispositivos menores
+          },
+          '@media (min-width: 377px) and (max-width: 768px)': {
+            gridTemplateColumns: 'repeat(2, 1fr)',
+          },
         }}
       >
         {games.map((game, index) => (
@@ -88,7 +122,12 @@ const GamesList = () => {
                 component="img"
                 image={game.image}
                 alt={game.name}
-                sx={{ height: '350px', objectFit: 'cover', borderRadius: '8px' }}
+                sx={{
+                  height: '350px', objectFit: 'cover', borderRadius: '8px',
+                  '@media (max-width: 376px)': {
+                    height: '150px'
+                  },
+                }}
               />
               <Box
                 component="img"
@@ -106,7 +145,11 @@ const GamesList = () => {
                 }}
               />
             </Box>
-            <CardContent sx={{ backgroundColor: '#09090b', color: 'white', padding: '10px' }}>
+            <CardContent sx={{
+              backgroundColor: '#09090b', color: 'white', padding: '10px', '@media (max-width: 376px)': {
+                display: 'none',
+              },
+            }}>
               <Typography variant="h6" component="h2" gutterBottom>
                 {game.name}
               </Typography>
@@ -127,6 +170,12 @@ const GamesList = () => {
             transform: 'scale(1.05)',
           },
           border: '3px solid #15171a',
+          '@media (max-width: 768px)': {
+            height: '75%'
+          },
+          '@media (max-width: 376px)': {
+            height: '150px'
+          },
         }}>
           <Box
             sx={{
@@ -137,6 +186,9 @@ const GamesList = () => {
               alignItems: 'center',
               height: '350px',
               borderRadius: '8px',
+              '@media (max-width: 376px)': {
+                height: '150px'
+              },
             }}
           >
             <Stack direction="column" alignItems="center" spacing={4}>
@@ -147,7 +199,12 @@ const GamesList = () => {
               />
               <Stack direction="row" alignItems="center" spacing={1}>
                 <img src={GrayBlocksIcon} alt="GreyBlocks Icon" style={{ marginRight: '5px' }} />
-                <Typography sx={{ color: 'white' }} > Ver todos os jogos</Typography>
+                <Typography sx={{
+                  color: 'white',
+                  '@media (max-width: 376px)': {
+                    fontSize: '10px'
+                  },
+                }} > Ver todos os jogos</Typography>
               </Stack>
             </Stack>
           </Box>

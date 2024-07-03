@@ -22,12 +22,13 @@ const detectOS = () => {
   if (userAgent.indexOf('Linux') !== -1) return 'Linux';
   return 'Unknown';
 };
+
 const os = detectOS();
+
 const Footer = () => {
   const [osIcon, setOsIcon] = React.useState(<MicrosoftIcon />);
 
   React.useEffect(() => {
-
     switch (os) {
       case 'Windows':
         setOsIcon(<MicrosoftIcon />);
@@ -43,6 +44,7 @@ const Footer = () => {
         break;
     }
   }, []);
+
   return (
     <Box
       sx={{
@@ -56,11 +58,30 @@ const Footer = () => {
         alignItems: 'center',
         justifyContent: 'space-between', // Mantém o texto à esquerda e as imagens à direita
         color: 'white',
-        padding: '40px',
+        padding: '90px',
+
+        '@media (max-width: 768px)': {
+          flexDirection: 'column',
+          alignItems: 'center',
+          textAlign: 'center',
+          padding: '50px 20px',
+        },
       }}
     >
       {/* Texto à esquerda */}
-      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', maxWidth: '50%', marginLeft: '5%' }}>
+      <Box sx={{
+        display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginLeft: '5%',
+        '@media (max-width: 768px)': {
+          alignItems: 'center',
+          textAlign: 'center',
+        },
+        '@media (max-width: 376px)': {
+          alignItems: 'flex-start',
+          textAlign: 'left',
+          padding: '90px -50px'
+
+        },
+      }}>
         <img src={BattleNetLogoImage} alt="Battle.net Logo" style={{ maxWidth: '100%', marginBottom: '20px' }} />
         <Typography variant="h4" sx={{ fontWeight: 'bold', marginBottom: '8%' }}>
           Baixe agora o Battle.net
@@ -88,8 +109,11 @@ const Footer = () => {
               boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
             },
             marginBottom: '8%',
-            width: '60%',
-            fontWeight: '600'
+            width: '80%',
+            fontWeight: '600',
+            '@media (max-width: 376px)': {
+              width: '100%'
+            },
 
           }}
           startIcon={osIcon}
