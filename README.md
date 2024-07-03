@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <img src=".github/demo.gif" width="100%" />
+  <img src=".github/demo2.gif" width="100%" />
 </p>
 
 ## 💻 Projeto
