@@ -124,8 +124,18 @@ function ResponsiveAppBar() {
       }}>
         <Container maxWidth="xl" >
           <Toolbar disableGutters>
-            <Box sx={{ flexGrow: 1 }}>
-              <img src={logo} alt="Blizzard Logo" style={{ maxWidth: 160 }} />
+            <Box sx={{
+              flexGrow: 1,
+            }}>
+              <Box component="img" src={logo} alt="Blizzard Logo" sx={{
+                maxWidth: 160,
+                '@media (max-width: 376px)': {
+                  width: '50px'
+                },
+                '@media (min-width: 377px) and (max-width: 767px)': {
+                  width: '90px'
+                },
+              }} />
             </Box>
 
             {/* Ícone de Menu para dispositivos móveis */}
@@ -427,6 +437,9 @@ function ResponsiveAppBar() {
                     color: '#00aeff', // Mudar a cor do texto ao passar o mouse
                     borderColor: '#00aeff', // Mudar a cor da borda ao passar o mouse
                   },
+                  '@media (min-width: 377px) and (max-width: 767px)': {
+                    fontSize: '9px'
+                  },
                 }}
               >
                 Criar Conta
@@ -454,7 +467,18 @@ function ResponsiveAppBar() {
       </AppBar>
 
       <Box sx={{ position: 'absolute', width: '100%', height: '2px', marginTop: '6%', bgcolor: 'transparent', zIndex: 2000 }}>
-        <Divider sx={{ borderBottomWidth: 1, borderColor: '#24262a', my: 1, }} />
+        <Divider sx={{
+          borderBottomWidth: 1, borderColor: '#24262a', my: 1,
+          '@media (max-width: 768px)': {
+            marginTop: '5%'
+          },
+          '@media (max-width: 376px)': {
+            marginTop: '12%'
+          },
+          '@media (min-width: 377px) and (max-width: 767px)': {
+            marginTop: '12%'
+          },
+        }} />
         <Box
           sx={{
             position: 'absolute',
@@ -464,7 +488,22 @@ function ResponsiveAppBar() {
             width: '3%',
             height: '2px',
             backgroundColor: '#00aeff',
-            zIndex: 1
+            zIndex: 1,
+            '@media (max-width: 768px)': {
+              marginTop: '-1.2%',
+              width: '8%',
+              left: '12%',
+            },
+            '@media (max-width: 376px)': {
+              marginTop: '-2.5%',
+              width: '8%',
+              left: '12%',
+            },
+            '@media (min-width: 377px) and (max-width: 767px)': {
+              marginTop: '-2%',
+              width: '10%',
+              left: '14%',
+            },
           }}
         />
       </Box>
