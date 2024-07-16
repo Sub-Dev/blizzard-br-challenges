@@ -76,7 +76,7 @@ O objetivo deste desafio é criar uma landing page que apresente os principais j
  </a>
  </td>
  <td>
- <strong>Anthony Marin</strong> (Subdesenvolvedor) - <a href="https://github.com/Sub-Dev">Perfil no GitHub</a>
+ <strong>Anthony Marin</strong> (Sub-Dev) - <a href="https://github.com/Sub-Dev">Perfil no GitHub</a>
  </td>
  </tr>
 </table>
